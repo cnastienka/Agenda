@@ -74,7 +74,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+// === Alerta, se ha añadido al carrito ===
+function alCarrito (){
+    alert("Haz añadido el producto al carrito de compras.")
 
+}
 
 
 
