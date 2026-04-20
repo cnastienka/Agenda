@@ -1,4 +1,7 @@
-package Agenda;
+package services;
+
+public class AgendaService {
+}
 
 public void añadirContacto(Contacto c) {
 //Indica si hay espacio de almacenamiento máximo 10 contactos.
