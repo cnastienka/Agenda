@@ -1,6 +1,6 @@
 package com.agenda.services;
 
-public class AgendaService {
+public class AgendaService extends Agenda{
     /**
      * Elimina un contacto de la agenda si este existe.
      * Muestra un mensaje indicando si la eliminación fue exitosa o no.
