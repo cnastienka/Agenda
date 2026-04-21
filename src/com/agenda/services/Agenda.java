@@ -68,7 +68,7 @@ public class Agenda {
      * Método existeContacto
      * Revisa si el contacto ya fue registrado
      */
-    private boolean existeContacto(Contacto c) {
+    public boolean existeContacto(Contacto c) {
 
         for (int i = 0; i < contador; i++) {
             if (contactos[i].getNombre().equalsIgnoreCase(c.getNombre()) &&
@@ -105,5 +105,27 @@ public class Agenda {
 
             System.out.println("Contacto añadido correctamente.");
         }
+
+    public void listarContactos() {
+        if (contador == 0) {
+            System.out.println("La agenda está vacía.");
+            return;
+        }
+        for (int i = 0; i < contador; i++) {
+            System.out.println(contactos[i].getNombre() + " " +
+                    contactos[i].getApellido() + " - " + contactos[i].getTelefono());
+        }
+    }
+
+    public void buscarContacto(String nombre, String apellido) {
+        for (int i = 0; i < contador; i++) {
+            if (contactos[i].getNombre().equalsIgnoreCase(nombre) &&
+                    contactos[i].getApellido().equalsIgnoreCase(apellido)) {
+                System.out.println("Teléfono: " + contactos[i].getTelefono());
+                return;
+            }
+        }
+        System.out.println("Contacto no encontrado.");
+    }
 
 }

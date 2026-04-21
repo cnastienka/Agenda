@@ -1,4 +1,5 @@
 package com.agenda.services;
+import com.agenda.models.Contacto;
 
 public class AgendaService extends Agenda{
     /**
