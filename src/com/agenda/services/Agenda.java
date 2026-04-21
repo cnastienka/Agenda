@@ -14,10 +14,10 @@ import com.agenda.models.Contacto;
 
 public class Agenda {
     /**
- * Arreglo donde se almacen los contactos
- */
+     * Arreglo donde se almacen los contactos
+     */
 
-private Contacto[] contactos;
+    private Contacto[] contactos;
 
     /**
      * Contador que indica cuantos contactos hay actualmente
@@ -64,6 +64,20 @@ private Contacto[] contactos;
     public int espaciosLibres() {
         return contactos.length - contador;
     }
+    /**
+     * Método existeContacto
+     * Revisa si el contacto ya fue registrado
+     */
+    private boolean existeContacto(Contacto c) {
+
+        for (int i = 0; i < contador; i++) {
+            if (contactos[i].getNombre().equalsIgnoreCase(c.getNombre()) &&
+                    contactos[i].getApellido().equalsIgnoreCase(c.getApellido())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * Método auxiliar para agregar contacto (te servirá después)
@@ -71,11 +85,25 @@ private Contacto[] contactos;
      * @param c
      */
     public void agregarContacto(Contacto c) {
-        if (!agendaLlena()) {
+            if (agendaLlena()) {
+                System.out.println("La agenda está llena.");
+                return;
+            }
+
+            if (c == null || c.getNombre() == null || c.getNombre().isEmpty() || c.getApellido() == null || c.getApellido().isEmpty()) {
+
+                System.out.println("El nombre y apellido no pueden estar vacíos.");
+                return;
+            }
+
+            if (existeContacto(c)) {
+                System.out.println("El contacto ya existe.");
+                return;
+            }
             contactos[contador] = c;
             contador++;
-        } else {
-            System.out.println("La agenda está llena.");
+
+            System.out.println("Contacto añadido correctamente.");
         }
-    }
+
 }
