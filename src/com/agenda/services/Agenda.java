@@ -1,11 +1,11 @@
-/*
+/**
  * mi avance del dia de hoy
  */
 package com.agenda.services;
 
 import com.agenda.models.Contacto;
 
-/*
+/**
  * Clase Agenda
  * Se encarga de gestinar el almacenamiento de contactos.
  * Permite crear una agenda con un tamaño definido, verificar si esta llena.
@@ -13,18 +13,18 @@ import com.agenda.models.Contacto;
  */
 
 public class Agenda {
-    /*
+    /**
      * Arreglo donde se almacen los contactos
      */
 
     private Contacto[] contactos;
 
-    /*
+    /**
      * Contador que indica cuantos contactos hay actualmente
      */
     private int contador;
 
-    /*
+    /**
      * Constructor por defecto
      * Crea una agenda con capacidd para 10 personas
      */
@@ -79,7 +79,7 @@ public class Agenda {
         return false;
     }
 
-    /*
+    /**
      * Método auxiliar para agregar contacto (te servirá después)
      *
      * @param c
