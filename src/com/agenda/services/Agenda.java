@@ -7,7 +7,7 @@ import com.agenda.models.Contacto;
 
 /**
  * Clase Agenda
- * Se encarga de gestinar el almacenamiento de contactos.
+ * Se encarga de gestionar el almacenamiento de contactos.
  * Permite crear una agenda con un tamaño definido, verificar si esta llena.
  * conocer los espacios disponibles y agregar nuevos contactos.
  */
@@ -17,12 +17,12 @@ public class Agenda {
      * Arreglo donde se almacen los contactos
      */
 
-    private Contacto[] contactos;
+    protected Contacto[] contactos;
 
     /**
      * Contador que indica cuantos contactos hay actualmente
      */
-    private int contador;
+    protected int contador;
 
     /**
      * Constructor por defecto
@@ -65,13 +65,14 @@ public class Agenda {
         return contactos.length - contador;
     }
     /**
-     * Método existeContacto
+     * Metodo existeContacto
      * Revisa si el contacto ya fue registrado
      */
     public boolean existeContacto(Contacto c) {
 
         for (int i = 0; i < contador; i++) {
-            if (contactos[i].getNombre().equalsIgnoreCase(c.getNombre()) &&
+            if (contactos[i] != null &&
+                    contactos[i].getNombre().equalsIgnoreCase(c.getNombre()) &&
                     contactos[i].getApellido().equalsIgnoreCase(c.getApellido())) {
                 return true;
             }
@@ -80,7 +81,7 @@ public class Agenda {
     }
 
     /**
-     * Método auxiliar para agregar contacto (te servirá después)
+     * Metodo auxiliar para agregar contacto (te servirá después)
      *
      * @param c
      */
@@ -112,14 +113,17 @@ public class Agenda {
             return;
         }
         for (int i = 0; i < contador; i++) {
-            System.out.println(contactos[i].getNombre() + " " +
-                    contactos[i].getApellido() + " - " + contactos[i].getTelefono());
+            if (contactos[i] != null) {
+                System.out.println(contactos[i].getNombre() + " " +
+                        contactos[i].getApellido() + " - " + contactos[i].getTelefono());
+            }
         }
     }
 
     public void buscarContacto(String nombre, String apellido) {
         for (int i = 0; i < contador; i++) {
-            if (contactos[i].getNombre().equalsIgnoreCase(nombre) &&
+            if (contactos[i] != null &&
+                    contactos[i].getNombre().equalsIgnoreCase(nombre) &&
                     contactos[i].getApellido().equalsIgnoreCase(apellido)) {
                 System.out.println("Teléfono: " + contactos[i].getTelefono());
                 return;
